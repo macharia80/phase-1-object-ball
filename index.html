@@ -7,3 +7,22 @@
 <script src="./src/00-objectball.js"></script>
 <script src="./src/01-simple-debug.js"></script>
 <!-- <script src="./src/02-advanced-debug.js"></script> -->
+<script>
+  function bigShoeRebounds() {
+    const game = gameObject();
+    let largestShoeSize = 0;
+    let playerWithLargestShoe = null;
+  
+    for (const team in game) {
+      for (const player in game[team].players) {
+        const playerStats = game[team].players[player];
+        if (playerStats.shoe > largestShoeSize) {
+          largestShoeSize = playerStats.shoe;
+          playerWithLargestShoe = playerStats;
+        }
+      }
+    }
+  
+    return playerWithLargestShoe.rebounds;
+  }
+  </script>
